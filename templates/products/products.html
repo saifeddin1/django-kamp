@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Products</title>
+	</head>
+	<body>
+		<div>
+			<h1>Products</h1>
+		</div>
+		<ul>
+		{% for product in products %}
+			<li>
+				
+				<h4><a href="{{ product.get_absolute_url }}">{{ product.title }}</h4></a>
+			</li>
+		{% empty %}
+		Sorry, Seems We have nothing for you !
+		{% endfor %}
+		</ul>
+	</body>
+</html>
