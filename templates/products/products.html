@@ -10,8 +10,11 @@
 		<ul>
 		{% for product in products %}
 			<li>
-				
+				<p>{{ product.brand }}</p>
 				<h4><a href="{{ product.get_absolute_url }}">{{ product.title }}</h4></a>
+				<div>
+					{{ product.price }}
+				</div>
 			</li>
 		{% empty %}
 		Sorry, Seems We have nothing for you !

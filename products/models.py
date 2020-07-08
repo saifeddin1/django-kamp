@@ -3,6 +3,7 @@ from django.urls import reverse
 
 
 class Product(models.Model):
+	brand = models.CharField(max_length=100)
 	title = models.CharField(max_length=100)
 	description = models.CharField(max_length=500)
 	price = models.FloatField(null=True)

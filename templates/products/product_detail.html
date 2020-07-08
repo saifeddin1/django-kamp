@@ -5,7 +5,14 @@
 </head>
 <body>
 	<a href="{% url 'product-list' %}">&larr; Back to Product List</a>
+<div>
+	
+	{{ product.brand }}
+</div>
 <h1>{{ product.title }}</h1>
 <h3>{{ product.description }}</h3>
+<div>
+	{{ product.price }}
+</div>
 </body>
 </html>
