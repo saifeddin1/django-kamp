@@ -7,11 +7,13 @@
         <img src="{{product.image.url}}" alt="" />
     </div>
     <div class="product-details-desc">
+       <a href="{% url 'product-edit' product.id %}"> &#9998; EDIT</a>
         <div class="product-brand">{{product.brand | capfirst }}</div>
         <h2 class="product-name">{{product.title | capfirst }}</h2>
         <div class="product-price">${{product.price | floatformat:2 }}</div>
         <p class="product-desc">
             {{product.description}}
+
         </p>
     </div>
 </section>
