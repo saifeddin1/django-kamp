@@ -4,16 +4,16 @@
 {% block content %}
 <section class="single-product-details clearfix">
     <div class="product-details-img">
-        <img src="{{product.image.url}}" alt="" />
+        <img src="{{object.image.url}}" alt="" />
     </div>
     <div class="product-details-desc">
-        <a href="{% url 'product-edit' product.id %}"> &#9998; EDIT</a> |
-        <a href="{% url 'product-delete' product.id %}">&#10006; DELETE</a>
-        <div class="product-brand">{{product.brand | capfirst }}</div>
-        <h2 class="product-name">{{product.title | capfirst }}</h2>
-        <div class="product-price">${{product.price | floatformat:2 }}</div>
+        <a href="{% url 'product-edit' object.id %}"> &#9998; EDIT</a> |
+        <a href="{% url 'product-delete' object.id %}">&#10006; DELETE</a>
+        <div class="product-brand">{{ object.brand | capfirst }}</div>
+        <h2 class="product-name">{{ object.title | capfirst }}</h2>
+        <div class="product-price">${{ object.price | floatformat:2 }}</div>
         <p class="product-desc">
-            {{product.description}}
+            {{object.description}}
 
         </p>
     </div>
