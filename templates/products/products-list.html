@@ -14,10 +14,15 @@
     <div class="products-wrapper clearfix">
         {% for product in object_list %}
         <div class="product">
+
+            {% if product.image %}
             <div class="product-img">
                 <img src="{{product.image.url}}" alt="">
                 <a href="{{product.get_absolute_url}}" class="details-btn">Details</a>
             </div>
+
+            {% endif %}
+
             <div class="product-description">
                 <div class="product-brand">{{ product.brand | capfirst }}</div>
                 <a class="product-name" href="{{product.get_absolute_url}}">{{ product.title | capfirst }}</a>
@@ -29,4 +34,27 @@
         {% endfor %}
     </div>
 </section>
+{% endblock %}
+
+{% block pagination %}
+<center>
+
+
+    {% if is_paginated %}
+    <div class="pagination">
+        <span class="page-links">
+            {% if page_obj.has_previous %}
+            <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}"> <strong> &larr;</strong></a>
+            {% endif %}
+            <span class="page-current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+            {% if page_obj.has_next %}
+            <a href="{{ request.path }}?page={{ page_obj.next_page_number }}"><strong>&rarr;</strong></a>
+            {% endif %}
+        </span>
+    </div>
+    {% endif %} <br>
+
+</center>
 {% endblock %}
