@@ -1,11 +1,20 @@
 {% extends "base.html" %}
+{% load static %}
 {% block head_title %}{{product.title | capfirst }}{% endblock %}
 
 {% block content %}
+
 <section class="single-product-details clearfix">
+
+    {% if object.image %}
     <div class="product-details-img">
         <img src="{{object.image.url}}" alt="" />
     </div>
+    {% else %}
+    <div class="product-details-img">
+        <img src="{% static 'notfound.jpg' %}" alt="" />
+    </div>
+    {% endif %}
     <div class="product-details-desc">
         <a href="{% url 'product-edit' object.id %}"> &#9998; EDIT</a> |
         <a href="{% url 'product-delete' object.id %}">&#10006; DELETE</a>

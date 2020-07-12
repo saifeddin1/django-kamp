@@ -7,7 +7,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 class ProductList(ListView):
     model = Product
     template_name = 'products/products-list.html'
-    paginate_by = 10
+    paginate_by = 9
 
 
 class ProductDetail(DetailView):
