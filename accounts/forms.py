@@ -7,11 +7,11 @@ User = get_user_model()
 
 
 class SignUpForm(UserCreationForm):
-    first_name = forms.Charfield(
+    first_name = forms.CharField(
         max_length=30, required=False, help_text='optional')
-    last_name = forms.Charfield(
+    last_name = forms.CharField(
         max_length=30, required=False, help_text='optional')
-    email = forms.Charfield(
+    email = forms.CharField(
         max_length=30, help_text='Required')
 
     class Meta:
