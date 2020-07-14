@@ -25,7 +25,10 @@
 
             <p>Hi {{ user.username }}|<a href="{% url 'logout' %}">Logout</a></p>
             {% else %}
-            <a href="{% url 'login' %}">Login</a></p>
+            <p>
+                <strong> <a href="{% url 'login' %}">Login</a> or <a href="{% url 'signup' %}">Create a new
+                        account</a></strong>
+            </p>
             {% endif %}
 
             <div id="controls">
