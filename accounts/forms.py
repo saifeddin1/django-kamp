@@ -13,8 +13,10 @@ class SignUpForm(UserCreationForm):
         max_length=30, required=False, help_text='optional')
     email = forms.CharField(
         max_length=30, help_text='Required')
+    address = forms.CharField(
+        max_length=100, help_text='Required')
 
     class Meta:
         model = User
         fields = ('username', 'password1', 'password2',
-                  'first_name', 'last_name', 'email')
+                  'first_name', 'last_name', 'email', 'address',)
