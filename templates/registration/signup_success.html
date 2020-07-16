@@ -1,1 +1,12 @@
-<p>Verification Email Sent ! Check Your Inbox .</p>
+{% extends 'base.html' %}
+
+{% block head_title %}
+Account Created | Store
+{% endblock head_title %}
+
+{% block content %}
+<p>
+    Verification Email Sent ! Check Your Inbox . <br>
+    <a href="{% url 'product-list' %}">&larr;Back to store homepage</a>
+</p>
+{% endblock content %}

@@ -1,6 +1,19 @@
+{% extends 'base.html' %}
+
+{% block head_title %}
+Login | Store
+{% endblock head_title %}
+
+{% block content %}
 <h1>Login</h1>
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
+    <div>
+        Don't have an account yet? <a href="{% url 'signup' %}"><b>Create One Now</b></a><br>
+        <a href="{% url 'password_reset' %}"><b> Forgot your password?</b></a>
+    </div>
+    <br>
     <input type="submit" value="Login">
 </form>
+{% endblock content %}
