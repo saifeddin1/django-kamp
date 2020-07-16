@@ -1,0 +1,4 @@
+Hi {{ user.username }}
+
+Please click the following link to confirm your registration :
+{{ domain }}{% url 'activate-email' uid=uid token=token %}

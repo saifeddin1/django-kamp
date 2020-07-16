@@ -14,7 +14,7 @@ class SignUpForm(UserCreationForm):
     email = forms.CharField(
         max_length=30, help_text='Required')
     address = forms.CharField(
-        max_length=100, help_text='Required')
+        max_length=100, required=False, help_text='Required')
 
     class Meta:
         model = User
