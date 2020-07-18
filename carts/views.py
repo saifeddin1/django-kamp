@@ -24,7 +24,7 @@ def remove_from_cart(request, product_id):
 
 def empty_cart(request):
     cart = Cart.objects.get(user=request.user)
-    cart.items.all().delete()
+    cart.items.clear()
     return redirect('cart')
 
 
