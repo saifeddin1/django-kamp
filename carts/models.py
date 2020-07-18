@@ -17,6 +17,13 @@ class Cart(models.Model):
     def __str__(self):
         return self.user.username
 
+    # @property
+    def total_price(self):
+        total = 0
+        for item in self.items.all():
+            total += item.price
+        return total
+
 
 @receiver(post_save, sender=User)
 def create_user_cart(sender, instance, created, **kwargs):

@@ -32,6 +32,7 @@ def empty_cart(request):
 def cart(request):
     user = request.user
     products = user.cart.items.all()
-    context = {'products': products}
+    total_price = user.cart.total_price()
+    context = {'products': products, 'total_price': total_price}
 
     return render(request, 'carts/cart.html', context)

@@ -1,5 +1,6 @@
 <ul>
-    <h3><a href="{% url 'empty_cart' %}"> Empty your cart</a></h3>
+    <h3><a href="{% url 'product-list' %}">&larr; Continue Shopping </a> | <a href="{% url 'empty_cart' %}"> Empty your
+            cart</a></h3>
     {% for product in products  %}
     <li>
         <h2>{{ product.title | capfirst }} <a href="{% url 'remove_from_cart' product_id=product.id %}">&#10006;</a>
@@ -10,3 +11,5 @@
     {% endfor %}
 
 </ul>
+
+Total Price : {{ total_price }}
