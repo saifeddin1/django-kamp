@@ -14,10 +14,12 @@ def signup(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             clean_address = form.cleaned_data['address']
-            user = form.save(commit=False)
+            user = form.save()
+            user.refresh_from_db()
             user.is_active = False
+            user.customer.address = clean_address
             user.save()
-            Customer.objects.create(user=user, address=clean_address)
+            # Customer.objects.create(user=user, address=clean_address)
             send_confirmation_email(request, user)
             return render(request, 'registration/signup_success.html')
     else:

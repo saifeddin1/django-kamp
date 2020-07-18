@@ -1,5 +1,5 @@
 from django.db import models
-# from django.db.models.signals import post_save
+from django.db.models.signals import post_save
 from django.contrib.auth import get_user_model
 
 
@@ -14,9 +14,10 @@ class Customer(models.Model):
         return f'{self.id} - Customer {self.user.username}'
 
 
-# def create_customer_profile(sender, instance, created, ** kwargs):
-#     if created:
-#         Customer.objects.create(user=instance)
+def update_customer_profile(sender, instance, created, ** kwargs):
+    if created:
+        Customer.objects.create(user=instance)
+    instance.customer.save()
 
 
-# post_save.connect(create_customer_profile, sender=User)
+post_save.connect(update_customer_profile, sender=User)
