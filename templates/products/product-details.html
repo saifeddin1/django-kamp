@@ -16,6 +16,10 @@
             {{product.description}}
 
         </p>
+        <a href="{% url 'add_to_cart' product_id=product.id %}">
+            <button style="outline: 1px solid gray;border:none;padding: 1%;">
+                Add To Cart
+            </button></a>
     </div>
 </section>
 {% endblock %}

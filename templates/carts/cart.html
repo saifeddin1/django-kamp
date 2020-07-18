@@ -1,0 +1,12 @@
+<ul>
+    <h3><a href="{% url 'empty_cart' %}"> Empty your cart</a></h3>
+    {% for product in products  %}
+    <li>
+        <h2>{{ product.title | capfirst }} <a href="{% url 'remove_from_cart' product_id=product.id %}">&#10006;</a>
+        </h2>
+    </li>
+    {% empty %}
+    <h1>No products Yet. <a href="{% url 'product-list' %}">Go to Store</a></h1>
+    {% endfor %}
+
+</ul>
