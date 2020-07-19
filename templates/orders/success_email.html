@@ -1,0 +1,12 @@
+Your Order Has been Successfuly Placed
+
+Order:
+
+{% for item in order.items.all %}
+{{ item.title }} | {{ item.price }}
+{% endfor %}
+
+Useful info :
+
+Order Date : {{ order.created_at }}
+Customer : {{ user.username }}

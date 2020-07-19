@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Delivey Address
+{% endblock title %}
+
+{% block content %}
+<h1>Choose your delivery address</h1>
+<form action="{% url 'complete_order' %}" method="post">
+    {% csrf_token %}
+    <input type="text" value="{{ customer.address }}" name="final_address">
+    <a href=""><button>Complete Order</button></a>
+</form>
+{% endblock content %}
