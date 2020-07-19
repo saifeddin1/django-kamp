@@ -7,7 +7,8 @@ User = get_user_model()
 
 
 class Order(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        User, related_name='orders', on_delete=models.CASCADE)
     items = models.ManyToManyField(Product)
     # customer_address = models.ForeignKey(
     #     Customer, to_field='address', null=True, on_delete=models.SET_NULL)
