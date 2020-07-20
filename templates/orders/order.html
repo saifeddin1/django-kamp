@@ -7,9 +7,13 @@ Delivey Address
 
 {% block content %}
 <h1>Choose your delivery address</h1>
-<form action="{% url 'place_order' %}" method="post">
+<form action="" method="post">
     {% csrf_token %}
-    <input type="text" value="{{ customer.address }}" name="final_address">
-    <a href=""><button>Complete Order</button></a>
+    {{ form.as_p }}
+    <button type="submit">Complete Order</button>
 </form>
+
+<script type='text/javascript'>
+    document.getElementById('id_address').value = '{{customer.address}}'
+</script>
 {% endblock content %}
