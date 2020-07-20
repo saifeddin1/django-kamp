@@ -7,8 +7,9 @@ class OrderForm(ModelForm):
         model = Order
         fields = ('address',)
 
-    def save(self, user):
+    def save(self, user, address):
         self.instance.user = user
+        self.instance.address = address
         self.instance.save()
 
         for item in user.cart.items.all():

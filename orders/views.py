@@ -17,9 +17,8 @@ def place_order(request):
         form = OrderForm(request.POST, request.FILES)
         if form.is_valid():
 
-            order = form.save(user)
-            order.address = form.cleaned_data['address']
-            order.save()
+            address = form.cleaned_data['address']
+            order = form.save(user, address)
             send_success_email(request, user, order)
             return render(request, 'orders/order_success.html')
     else:
