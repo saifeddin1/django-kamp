@@ -4,22 +4,22 @@ from carts.models import Cart
 from .utils import send_success_email
 
 
-def address(request):
-    customer = request.user.customer
-    return render(request, 'orders/address.html', {'customer': customer})
+# def address(request):
+#     customer = request.user.customer
+#     return render(request, 'orders/address.html', {'customer': customer})
 
 
-def complete_order(request):
+def place_order(request):
     user = request.user
     cart = user.cart
-    print(cart.items.all())
 
     order = Order.objects.create(user=user)
-    print(order.items)
     for item in cart.items.all():
         order.items.add(item)
-    print(request.POST['final_address'])
-    order.address = request.POST['final_address']
-    order.save()
-    send_success_email(request, user, order )
-    return render(request, 'orders/order_success.html')
+    if request.method == 'POST':
+
+        order.address = request.POST['final_address']
+        order.save()
+        send_success_email(request, user, order)
+        return render(request, 'orders/order_success.html')
+    return render(request, 'orders/order.html', {'customer': user.customer})

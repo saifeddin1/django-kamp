@@ -10,7 +10,7 @@ Shopping Cart | Store
 <ul>
     <h3><a href="{% url 'product-list' %}">&larr; Continue Shopping </a> | <a href="{% url 'empty_cart' %}"
             style="color: red;"> Empty your
-            cart | <a href="{% url 'address' %}">Order Now &rarr;</a></a>
+            cart | <a href="{% url 'place_order' %}">Order Now &rarr;</a></a>
     </h3>
     {% for product in products  %}
     <li>
