@@ -12,5 +12,5 @@ ALLOWED_HOSTS = ['.herokuapp.com']
 
 
 DATABASES = {
-    'default': dj_database_url.config(os.environ.get('DATABASE_URL'))
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
