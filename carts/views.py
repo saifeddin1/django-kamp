@@ -32,15 +32,11 @@ def empty_cart(request):
 @login_required
 def cart(request):
     user = request.user
-    products = user.cart.items.all()
-    total_price = user.cart.total_price()
-    total_price = user.cart.items.aggregate(
+    cart = user.cart
+    products = cart.items.all()
+    # total_price = user.cart.total_price()
+    total_price = cart.items.aggregate(
         total_price=Sum('price'))['total_price']
-    context = {'products': products, 'total_price': total_price}
+    context = {'products': products, 'total_price': total_price, 'cart': cart}
 
     return render(request, 'carts/cart.html', context)
-
-
-
-
-
