@@ -24,10 +24,11 @@
 
                 {% if user.is_authenticated %}
 
-                <p>Hi {{ user.username }} | <a href="{% url 'logout' %}">Logout | </a></p>
+                <p>Hi {{ user.username }}</p>
+                <input type="button" id="logout" onclick="location.href='{% url 'logout' %}'" value="Log out" />
                 {% else %}
                 <p>
-                    <a href="{% url 'login' %}">Login | </a>
+                    <input type="button" id="login" onclick="location.href='{% url 'login' %}'" value="Log in" />
                 </p>
                 {% endif %}
 
