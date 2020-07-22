@@ -5,14 +5,20 @@ Signup | Store
 {% endblock head_title %}
 
 {% block content %}
-<h1>Sign Up</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <div>
-        Already have an account? <a href="{% url 'login' %}"><b>Login</b></a>
+<section class="form-section">
+    <h2 class="section-headline">Sign Up</h2>
+    <p class="section-description">
+        Please fill in this form to create an account.
+    </p>
+    <div class="form">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p>
+                <button type="submit">Signup</button>
+            </p>
+            <a href="{% url 'login' %}">Already have an account?</a>
+        </form>
     </div>
-    <br>
-    <input type="submit" value="Signup">
-</form>
+</section>
 {% endblock content %}

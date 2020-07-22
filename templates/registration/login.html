@@ -1,19 +1,24 @@
-{% extends 'base.html' %}
-
-{% block head_title %}
-Login | Store
-{% endblock head_title %}
+{% extends "base.html" %}
+{% block head_title %}Login{% endblock %}
 
 {% block content %}
-<h1>Login</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <div>
-        Don't have an account yet? <a href="{% url 'signup' %}"><b>Create One Now</b></a><br>
-        <a href="{% url 'password_reset' %}"><b> Forgot your password?</b></a>
+<section class="form-section">
+    <h2 class="section-headline">Login</h2>
+    <p class="section-description">
+        Please fill in your credentials to login to your account.
+    </p>
+    <div class="form">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p>
+                <button type="submit">Login</button>
+            </p>
+        </form>
+        <p>
+            <a href="{% url 'signup' %}">Don't have an account?</a>
+            <a href="{% url 'password_reset' %}">Reset password?</a>
+        </p>
     </div>
-    <br>
-    <input type="submit" value="Login">
-</form>
-{% endblock content %}
+</section>
+{% endblock %}
