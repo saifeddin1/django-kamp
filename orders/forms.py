@@ -9,7 +9,7 @@ class OrderForm(ModelForm):
 
     def save(self, user, address):
         self.instance.user = user
-        self.instance.address = address
+        # self.instance.address = address
         self.instance.save()
 
         for item in user.cart.items.all():
